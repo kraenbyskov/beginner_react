@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+
+const Person = ({ data }) => {
+  const { firstName, lastName, age = "No Age", male } = data;
+  return (
+    <p>
+      Name : {firstName} {lastName} Age: {age} Gender -
+      {male ? "Male" : "Female"}
+    </p>
+  );
+};
 
 function App() {
+  const persons = [
+    { firstName: "John", lastName: "Snow", age: 22, male: true },
+    { firstName: "Tony", lastName: "Stark", male: true },
+    { firstName: "Bruce", lastName: "Banner", age: 20, male: false },
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {persons.map((data) => (
+        <Person data={data} />
+      ))}
+    </>
   );
 }
-
 export default App;

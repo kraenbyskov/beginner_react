@@ -1,70 +1,232 @@
-# Getting Started with Create React App
+## 😍 React for første gang 😍
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Start et ny project 💾
 
-## Available Scripts
+```
+npx create-react-app my-app
+cd my-app
+npm start
+```
 
-In the project directory, you can run:
+### Hvad er JSX ?
 
-### `yarn start`
+```js
+const element = React.createElement(
+  "h1",
+  { className: "greeting" },
+  "Hello, 🌐!"
+);
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```JSX
+const element = (
+  <h1 className="greeting">
+    Hello, 🌐!
+  </h1>
+);
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Component
 
-### `yarn test`
+```JSX
+const MyComponenents = (props) => {
+    const Emoji = props.Emoji;
+    return(
+        <h1>Hello {Emoji}</h1>
+    )
+}
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+const App = () => {
+    return (
+        <>
+            <MyComponents Name={"😃"} />
+            <MyComponents Name={"😍"} />
+        </>
+    )
+}
 
-### `yarn build`
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Handling Events
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Forkert
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```jsx
+<button onclick="activateLasers()">👽</button>
+```
 
-### `yarn eject`
+Rigtig
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```jsx
+<button onClick={() => activateLasers()}>👽</button>
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### UseState
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```jsx
+function App() {
+  const [state, setstate] = useState(0);
+  return (
+    <>
+      <button onClick={() => setstate(state + 1)}>Clicker</button>
+      <p>{state}</p>
+    </>
+  );
+}
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Conditional Rendering
 
-## Learn More
+conditional operator – condition ? true : false.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```jsx
+function App() {
+  const [state, setstate] = useState(false);
+  return (
+    <div>
+      {state ? <div>💚</div> : <div>💜 </div>}
+      <button onClick={() => setstate(!state)}>Skift hjerte</button>
+    </div>
+  );
+}
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+logical && operator
 
-### Code Splitting
+```js
+{
+  state && <div>💚</div>;
+}
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Lists and Keys
 
-### Analyzing the Bundle Size
+Lists : map
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```js
+function App() {
+  const Emoji = ["😄", "😃", "😳", "😜", "😴"];
+  return (
+    <div>
+      {Emoji.map((emoji) => (
+        <li>{emoji}</li>
+      ))}
+    </div>
+  );
+}
+```
 
-### Making a Progressive Web App
+Keys 🔑
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```jsx
+{
+  Emoji.map((emoji) => <li key={emoji.toString()}>{emoji}</li>);
+}
+```
 
-### Advanced Configuration
+### Forms 📨
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```jsx
+function App() {
+  const [state, setstate] = useState();
+  return (
+    <>
+      <input
+        onChange={(e) => setstate(e.target.value)}
+        type="text"
+        value={state}
+      />
+      <button>Submit</button>
+      <p>{state}</p>
+    </>
+  );
+}
+```
 
-### Deployment
+### UseEffect
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```js
+function App() {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  }, [count]);
+  console.log("hep hop");
+  return (
+    <>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </>
+  );
+}
+```
 
-### `yarn build` fails to minify
+### 🚦 React Router Dom 🚦
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```jsx
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+export default function App() {
+  return (
+    <Router>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Link to="/users">Users</Link>
+
+      <Switch>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/users">
+          <Users />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}
+```
+
+### Destructuring
+
+```jsx
+const Person = ({ data }) => {
+  const { firstName, lastName, age = "No Age", male } = data;
+  return (
+    <p>
+      Name : {firstName} {lastName} Age: {age} Gender -
+      {male ? "Male" : "Female"}
+    </p>
+  );
+};
+
+function App() {
+  const persons = [
+    { firstName: "John", lastName: "Snow", age: 22, male: true },
+    { firstName: "Tony", lastName: "Stark", male: true },
+    { firstName: "Bruce", lastName: "Banner", age: 20, male: false },
+  ];
+  return (
+    <>
+      {persons.map((data) => (
+        <Person data={data} />
+      ))}
+    </>
+  );
+}
+```
