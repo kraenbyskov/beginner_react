@@ -63,6 +63,10 @@ Rigtig
 
 ### UseState
 
+```js
+const [state, setstate] = useState(0);
+```
+
 ```jsx
 function App() {
   const [state, setstate] = useState(0);
@@ -76,6 +80,10 @@ function App() {
 ```
 
 ### Conditional Rendering
+
+```jsx
+state ? <div>💚</div> : <div>💜 </div>;
+```
 
 conditional operator – condition ? true : false.
 
@@ -94,12 +102,14 @@ function App() {
 logical && operator
 
 ```js
-{
-  state && <div>💚</div>;
-}
+state && <div>💚</div>;
 ```
 
 ### Lists and Keys
+
+```js
+Emoji.map((emoji) => <li>{emoji}</li>);
+```
 
 Lists : map
 
@@ -126,6 +136,10 @@ Keys 🔑
 
 ### Forms 📨
 
+```js
+<input onChange={(e) => setstate(e.target.value)} type="text" value={state} />
+```
+
 ```jsx
 function App() {
   const [state, setstate] = useState();
@@ -146,12 +160,17 @@ function App() {
 ### UseEffect
 
 ```js
+useEffect(() => {
+  document.title = `You clicked ${count} times`;
+}, [count]);
+```
+
+```js
 function App() {
   const [count, setCount] = useState(0);
   useEffect(() => {
     document.title = `You clicked ${count} times`;
   }, [count]);
-  console.log("hep hop");
   return (
     <>
       <p>You clicked {count} times</p>
@@ -203,6 +222,10 @@ function Users() {
 ```
 
 ### Destructuring
+
+```js
+const { firstName, lastName, age = "No Age", male } = data;
+```
 
 ```jsx
 const Person = ({ data }) => {
