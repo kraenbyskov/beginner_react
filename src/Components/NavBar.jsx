@@ -1,39 +1,51 @@
 import React from 'react'
-import { Link } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import styled from 'styled-components';
 
 const Nav = styled.nav`
-width:100%;
-height:auto;
-min-height:60px;
-display:inline-flex;
-justify-content:space-evenly;
-align-items:center;
-background:lightsteelblue;
-
-a {
+background:#252f3f;
+padding:16px;
+height:100vh;
+position:relative;
+width:300px;
+p {
     color:white;
+}
+a {
+    margin:4px 0;
+    display:block;
+    padding:12px 12px;
     text-decoration:none;
-    background:darkblue;
-    padding:5px 10px;
-    border-radius:5px;
-    box-shadow:1px 1px 3px black;
-    
+    border-radius:8px;
+    color:white;
+    transition:all 0.35s cubic-bezier(.35, 0,.1, 1);
     &:hover {
-        box-shadow:1px 1px 1px black;
-        
+       background-color:#1a2336;
     }
-
 }
 `
+
+// const Content = styled.div`
+// position:fixed;
+// width:auto;
+
+// `
+
+
+const Active = {
+    backgroundColor: "#161e2e"
+}
 
 export default function NavBar({ Routes }) {
     return (
         <Nav>
+            {/* <Content> */}
+            <p>React Guide punkter</p>
             {Routes && Routes.map((links, id) => (
-                <Link key={id} to={links.path}>{links.name}</Link>
+                <NavLink key={id} exact={links.name === "Home" ? true : false} activeStyle={Active} to={links.path}>{links.name}</NavLink>
             )
             )}
+            {/* </Content> */}
         </Nav>
     )
 }
