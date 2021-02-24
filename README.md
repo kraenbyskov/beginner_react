@@ -253,3 +253,88 @@ function App() {
   );
 }
 ```
+
+### Containment
+
+```jsx
+const Container = (props) => {
+  return (
+    <div
+      style={{
+        backgroundColor: props.background,
+        padding: "20px",
+        margin: "20px",
+      }}
+    >
+      {props.children}
+    </div>
+  );
+};
+
+function App() {
+  return (
+    <>
+      <Container background={"orange"}>
+        <h1>Hello world</h1>
+
+        <p>Lorem ipsum dolor sit amet consectetur</p>
+      </Container>
+    </>
+  );
+}
+```
+
+### Code-Splitting
+
+Container.js File
+
+```jsx
+const Container = (props) => {
+  return (
+    <div
+      style={{
+        backgroundColor: props.background,
+        padding: "20px",
+        margin: "20px",
+      }}
+    >
+      {props.children}
+    </div>
+  );
+};
+
+export default Container;
+```
+
+Import Container ind i App.js filen
+
+```jsx
+import Container from "./Container.js";
+
+function App() {
+  return (
+    <>
+      <Container background={"orange"}>
+        <h1>Hello world</h1>
+
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus dicta a
+          et id expedita repudiandae distinctio aut ullam, facilis numquam!
+        </p>
+      </Container>
+    </>
+  );
+}
+```
+
+### APIs
+
+```jsx
+
+```
+
+### styling
+
+### CSS / SASS
+
+### styled-components
