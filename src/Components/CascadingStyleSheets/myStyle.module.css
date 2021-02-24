@@ -1,0 +1,16 @@
+.container {
+  width: 50%;
+  background: lightblue;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.box1 {
+  text-align: center;
+}
+.box2 {
+  text-align: right;
+}
+.box3 {
+  text-align: left;
+}

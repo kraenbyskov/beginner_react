@@ -29,7 +29,7 @@ const element = (
 ### Component
 
 ```JSX
-const MyComponenents = (props) => {
+const MyComponents = (props) => {
     const Emoji = props.Emoji;
     return(
         <h1>Hello {Emoji}</h1>
@@ -330,11 +330,120 @@ function App() {
 ### APIs
 
 ```jsx
+const Key = `7c105b21789fdf773ab798b1c284f40e`;
+const category = `popular`;
+const url = `https://api.themoviedb.org/3/movie/${category}?api_key=${Key}`;
 
+fetch(url)
+  .then((response) => response.json())
+  .then((result) => console.log(result.results))
+  .catch((err) => {
+    console.error(err);
+  });
 ```
 
-### styling
+### Styling
 
-### CSS / SASS
+Inline Styling med Javascript
+
+```jsx
+
+const customStyling = {
+    background: "blue",
+    width: "200px",
+    height: "200px",
+    display: " inline-flex",
+    justifyContent: "center",
+    alignItems: "center"
+}
+
+<div style={customStyling}><p>Noget Tekst her</p></div>
+```
+
+eller
+
+```jsx
+<div
+  style={{
+    background: "orange",
+    width: "200px",
+    height: "200px",
+    display: " inline-flex",
+    justifyContent: "center",
+    alignItems: "center",
+  }}
+>
+  <p>Noget Tekst her</p>
+</div>
+```
+
+### CSS
+
+Brug CSS eller Sass til at style dit projekt
+
+Normal Styling
+
+```jsx
+import "./myStyle.css";
+
+<div className="box1">
+  <h2>Lorem ipsum dolor sit amet.</h2>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+    voluptatum.
+  </p>
+</div>;
+```
+
+Module Styling
+
+```jsx
+import style from "./myStyle.module.css";
+
+<div className={style.box1}>
+  <h2>Lorem ipsum dolor sit amet.</h2>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+    voluptatum.
+  </p>
+</div>;
+```
+
+for at bruge Sass i React.
+
+```jsx
+npm install node-sass
+```
 
 ### styled-components
+
+Styled components til at style components.
+
+```javascript
+import styled from 'styled-components'
+
+const Container = styled.div`
+    width: 50%;
+    background: darkblue;
+    margin: 0 auto;
+    padding: 10px;
+`
+
+const Title = styled.h2`
+    text-align:center;
+    color:white;
+`
+
+const Text = styled.p`
+    color:white;
+    text-align:center;
+`
+
+<Container>
+  <Title>Lorem ipsum dolor sit amet.</Title>
+  <Text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</Text>
+</Container>
+
+
+
+```
