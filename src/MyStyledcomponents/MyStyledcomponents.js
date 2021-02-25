@@ -2,37 +2,36 @@ import styled from "styled-components";
 
 
 const Container = styled.div`
-    display:grid;
-    grid-template-columns:1fr 1fr;
+    width:100%;
+    min-height:100vh;
+    position:relative;
 `
 
 const Output = styled.div`
-background:#2e3a4d;
+
 display:flex;
+min-height:100vh;
+
 justify-content:center;
 align-items:center;
 `
 
 const Card = styled.div`
-    min-width:50%;
-    background:white;
+text-align:center;
+    width:80%;
+    height: 80%;
     padding:24px;
     border-radius:16px;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-`
-
-
-const CodeViewe = styled.div`
-background:#2e3a4d;
-display:flex;
-justify-content:center;
-align-items:center;
-h3 {
-    color:white;
-}
-
+    border-radius: 25px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 `
 
 
 
-export { Container, Output, CodeViewe, Card }
+
+
+export { Container, Output, Card }

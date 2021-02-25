@@ -19,11 +19,10 @@ function FecthAPI() {
 
     return (
         <>
-            {state && state.map(({ original_title, poster_path }) => (
-                <div style={{ width: "200px", display: "inline-flex", margin: "10px" }}>
+            {state && state.map(({ poster_path }) => (
+                <div style={{ width: "150px", display: "inline-flex", margin: "10px" }}>
                     <div>
-                        <h3 style={{ textAlign: "centerr" }}>{original_title}</h3>
-                        <img style={{ width: "200px" }} src={`https://image.tmdb.org/t/p/original/${poster_path}`} alt="" />
+                        <img style={{ width: "150px" }} src={`https://image.tmdb.org/t/p/original/${poster_path}`} alt="" />
                     </div>
                 </div>
             ))}

@@ -4,9 +4,10 @@
 
 .container {
   width: 50%;
-  background: lightblue;
+  background: #f975c9;
   margin: 0 auto;
-  padding: 10px;
+  padding: 24px;
+  border-radius: 18px;
 }
 
 .box1 {

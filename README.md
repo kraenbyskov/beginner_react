@@ -309,7 +309,7 @@ export default Container;
 Import Container ind i App.js filen
 
 ```jsx
-import Container from "./Container.js";
+import Container from "./Container";
 
 function App() {
   return (

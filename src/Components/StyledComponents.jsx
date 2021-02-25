@@ -4,9 +4,10 @@ import styled from 'styled-components'
 
 const Container = styled.div`
     width: 50%;
-    background: darkblue;
+    background: #ff9cf9;
+    padding: 24px;
+    border-radius: 18px;
     margin: 0 auto;
-    padding: 10px;
 `
 
 const Title = styled.h2`

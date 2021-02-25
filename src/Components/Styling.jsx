@@ -2,7 +2,10 @@ import React from 'react'
 
 
 const customStyling = {
-    background: "blue", width: "200px", height: "200px", display: " inline-flex",
+    background: "#f975c9",
+    width: "200px",
+    height: "200px",
+    display: " inline-flex",
     justifyContent: "center",
     alignItems: "center"
 }
@@ -21,7 +24,11 @@ export default function Styling() {
     return (
         <div style={Container}>
             <div style={{
-                background: "orange", width: "200px", height: "200px", display: " inline-flex", justifyContent: "center",
+                background: "#06b9fb",
+                width: "200px",
+                height: "200px",
+                display: " inline-flex",
+                justifyContent: "center",
                 alignItems: "center"
             }}><p>Noget Tekst her</p></div>
             <div style={customStyling}><p>Noget Tekst her</p></div>
