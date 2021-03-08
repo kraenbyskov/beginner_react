@@ -47,213 +47,6 @@ const App = () => {
 
 ```
 
-### Handling Events
-
-Forkert
-
-```jsx
-<button onclick="activateLasers()">👽</button>
-```
-
-Rigtig
-
-```jsx
-<button onClick={() => activateLasers()}>👽</button>
-```
-
-### UseState
-
-```js
-const [state, setstate] = useState(0);
-```
-
-```jsx
-function App() {
-  const [state, setstate] = useState(0);
-  return (
-    <>
-      <button onClick={() => setstate(state + 1)}>Clicker</button>
-      <p>{state}</p>
-    </>
-  );
-}
-```
-
-### Conditional Rendering
-
-```jsx
-state ? <div>💚</div> : <div>💜 </div>;
-```
-
-conditional operator – condition ? true : false.
-
-```jsx
-function App() {
-  const [state, setstate] = useState(false);
-  return (
-    <div>
-      {state ? <div>💚</div> : <div>💜 </div>}
-      <button onClick={() => setstate(!state)}>Skift hjerte</button>
-    </div>
-  );
-}
-```
-
-logical && operator
-
-```js
-state && <div>💚</div>;
-```
-
-### Lists and Keys
-
-```js
-Emoji.map((emoji) => <li>{emoji}</li>);
-```
-
-Lists : map
-
-```js
-function App() {
-  const Emoji = ["😄", "😃", "😳", "😜", "😴"];
-  return (
-    <div>
-      {Emoji.map((emoji) => (
-        <li>{emoji}</li>
-      ))}
-    </div>
-  );
-}
-```
-
-Keys 🔑
-
-```jsx
-{
-  Emoji.map((emoji) => <li key={emoji.toString()}>{emoji}</li>);
-}
-```
-
-### Forms 📨
-
-```js
-<input onChange={(e) => setstate(e.target.value)} type="text" value={state} />
-```
-
-```jsx
-function App() {
-  const [state, setstate] = useState();
-  return (
-    <>
-      <input
-        onChange={(e) => setstate(e.target.value)}
-        type="text"
-        value={state}
-      />
-      <button>Submit</button>
-      <p>{state}</p>
-    </>
-  );
-}
-```
-
-### UseEffect
-
-```js
-useEffect(() => {
-  document.title = `You clicked ${count} times`;
-}, [count]);
-```
-
-```js
-function App() {
-  const [count, setCount] = useState(0);
-  useEffect(() => {
-    document.title = `You clicked ${count} times`;
-  }, [count]);
-  return (
-    <>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>Click me</button>
-    </>
-  );
-}
-```
-
-### 🚦 React Router Dom 🚦
-
-```jsx
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-export default function App() {
-  return (
-    <Router>
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Link to="/users">Users</Link>
-
-      <Switch>
-        <Route path="/about">
-          <About />
-        </Route>
-        <Route path="/users">
-          <Users />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
-  );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
-```
-
-### Destructuring
-
-```js
-const { firstName, lastName, age = "No Age", male } = data;
-```
-
-```jsx
-const Person = ({ data }) => {
-  const { firstName, lastName, age = "No Age", male } = data;
-  return (
-    <p>
-      Name : {firstName} {lastName} Age: {age} Gender -
-      {male ? "Male" : "Female"}
-    </p>
-  );
-};
-
-function App() {
-  const persons = [
-    { firstName: "John", lastName: "Snow", age: 22, male: true },
-    { firstName: "Tony", lastName: "Stark", male: true },
-    { firstName: "Bruce", lastName: "Banner", age: 20, male: false },
-  ];
-  return (
-    <>
-      {persons.map((data) => (
-        <Person data={data} />
-      ))}
-    </>
-  );
-}
-```
-
 ### Containment
 
 ```jsx
@@ -325,21 +118,6 @@ function App() {
     </>
   );
 }
-```
-
-### APIs
-
-```jsx
-const Key = `7c105b21789fdf773ab798b1c284f40e`;
-const category = `popular`;
-const url = `https://api.themoviedb.org/3/movie/${category}?api_key=${Key}`;
-
-fetch(url)
-  .then((response) => response.json())
-  .then((result) => console.log(result.results))
-  .catch((err) => {
-    console.error(err);
-  });
 ```
 
 ### Styling
@@ -415,6 +193,180 @@ for at bruge Sass i React.
 npm install node-sass
 ```
 
+### Handling Events
+
+Forkert
+
+```jsx
+<button onclick="activateLasers()">👽</button>
+```
+
+Rigtig
+
+```jsx
+<button onClick={() => activateLasers()}>👽</button>
+```
+
+### UseState
+
+```js
+const [state, setstate] = useState(0);
+```
+
+```jsx
+function App() {
+  const [state, setstate] = useState(0);
+  return (
+    <>
+      <button onClick={() => setstate(state + 1)}>Clicker</button>
+      <p>{state}</p>
+    </>
+  );
+}
+```
+
+### Conditional Rendering
+
+```jsx
+state ? <div>💚</div> : <div>💜 </div>;
+```
+
+conditional operator – condition ? true : false.
+
+```jsx
+function App() {
+  const [state, setstate] = useState(false);
+  return (
+    <div>
+      {state ? <div>💚</div> : <div>💜 </div>}
+      <button onClick={() => setstate(!state)}>Skift hjerte</button>
+    </div>
+  );
+}
+```
+
+logical && operator
+
+```js
+state && <div>💚</div>;
+```
+
+### UseEffect
+
+```js
+useEffect(() => {
+  document.title = `You clicked ${count} times`;
+}, [count]);
+```
+
+```js
+function App() {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    document.title = `You clicked ${count} times`;
+  }, [count]);
+  return (
+    <>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>Click me</button>
+    </>
+  );
+}
+```
+
+### Lists and Keys
+
+```js
+Emoji.map((emoji) => <li>{emoji}</li>);
+```
+
+Lists : map
+
+```js
+function App() {
+  const Emoji = ["😄", "😃", "😳", "😜", "😴"];
+  return (
+    <div>
+      {Emoji.map((emoji) => (
+        <li>{emoji}</li>
+      ))}
+    </div>
+  );
+}
+```
+
+Keys 🔑
+
+```jsx
+{
+  Emoji.map((emoji) => <li key={emoji.toString()}>{emoji}</li>);
+}
+```
+
+### Forms 📨
+
+```js
+<input onChange={(e) => setstate(e.target.value)} type="text" value={state} />
+```
+
+```jsx
+function App() {
+  const [state, setstate] = useState();
+  return (
+    <>
+      <input
+        onChange={(e) => setstate(e.target.value)}
+        type="text"
+        value={state}
+      />
+      <button>Submit</button>
+      <p>{state}</p>
+    </>
+  );
+}
+```
+
+### 🚦 React Router Dom 🚦
+
+```jsx
+import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+export default function App() {
+  return (
+    <Router>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Link to="/users">Users</Link>
+
+      <Switch>
+        <Route path="/about">
+          <About />
+        </Route>
+        <Route path="/users">
+          <Users />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  );
+}
+
+function Home() {
+  return <h2>Home</h2>;
+}
+
+function About() {
+  return <h2>About</h2>;
+}
+
+function Users() {
+  return <h2>Users</h2>;
+}
+```
+
 ### styled-components
 
 Styled components til at style components.
@@ -446,4 +398,52 @@ const Text = styled.p`
 
 
 
+```
+
+### Destructuring
+
+```js
+const { firstName, lastName, age = "No Age", male } = data;
+```
+
+```jsx
+const Person = ({ data }) => {
+  const { firstName, lastName, age = "No Age", male } = data;
+  return (
+    <p>
+      Name : {firstName} {lastName} Age: {age} Gender -
+      {male ? "Male" : "Female"}
+    </p>
+  );
+};
+
+function App() {
+  const persons = [
+    { firstName: "John", lastName: "Snow", age: 22, male: true },
+    { firstName: "Tony", lastName: "Stark", male: true },
+    { firstName: "Bruce", lastName: "Banner", age: 20, male: false },
+  ];
+  return (
+    <>
+      {persons.map((data) => (
+        <Person data={data} />
+      ))}
+    </>
+  );
+}
+```
+
+### APIs
+
+```jsx
+const Key = `7c105b21789fdf773ab798b1c284f40e`;
+const category = `popular`;
+const url = `https://api.themoviedb.org/3/movie/${category}?api_key=${Key}`;
+
+fetch(url)
+  .then((response) => response.json())
+  .then((result) => console.log(result.results))
+  .catch((err) => {
+    console.error(err);
+  });
 ```
