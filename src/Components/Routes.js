@@ -15,6 +15,7 @@ import ReactRouterDom from "./ReactRouterDom"
 import Destructuring from "./Destructuring"
 import Containment from "./Containment"
 import CodeSplitting from "./Code-Splitting/CodeSplitting"
+import DataComponent from "./Provider/DataComponent"
 
 
 
@@ -138,6 +139,13 @@ const Routes = [
         path: "/StyledComponents",
         icon: "fas fa-tshirt",
         Component: StyledComponents,
+    },
+    {
+        id: 18,
+        name: "Provider",
+        path: "/Provider",
+        icon: "fas fa-tshirt",
+        Component: DataComponent,
     },
 
 ]

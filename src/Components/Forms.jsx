@@ -11,6 +11,21 @@ export default function Forms() {
                 type="text"
                 value={state}
             />
+            <input
+                onChange={(e) => setstate(e.target.value)}
+                type="text"
+                value={state}
+            />
+            <input
+                onChange={(e) => setstate(e.target.value)}
+                type="text"
+                value={state}
+            />
+            <input
+                onChange={(e) => setstate(e.target.value)}
+                type="text"
+                value={state}
+            />
             <p>{state}</p>
         </div>
     )
